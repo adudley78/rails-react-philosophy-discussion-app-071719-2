@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class SparkList extends React.Component {
     renderSparks() {
@@ -10,9 +11,11 @@ class SparkList extends React.Component {
 
         return sparks.map(spark => (
             <li key={spark.id}>
+                <Link to={`/sparks/${spark.id}`}>
                 {spark.spark_date}
                 {' - '}
                 {spark.spark_type}
+                </Link>
             </li>
         ));
     }
