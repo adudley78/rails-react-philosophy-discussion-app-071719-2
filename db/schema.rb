@@ -10,13 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_203033) do
+ActiveRecord::Schema.define(version: 2019_07_18_153014) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
+  create_table "sparks", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "spark_type"
+    t.date "spark_date"
+    t.text "title"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sparks_on_user_id"
   end
 
 end

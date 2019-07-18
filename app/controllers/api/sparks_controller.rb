@@ -1,4 +1,5 @@
-class Api::ArticlesController < ApplicationController
+# Respond to JSON requests about articles
+class Api::SparksController < ApplicationController
     respond_to :json
 
     def index

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'site#index'
 
   namespace :api do
-    resources :articles, only: %i[index show create destroy update]
+    resources :sparks, only: %i[index show create destroy update]
   end
 
 end
