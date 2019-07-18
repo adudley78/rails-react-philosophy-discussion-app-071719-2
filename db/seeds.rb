@@ -1,4 +1,4 @@
-json = ActiveSupport::JSON.decode(File.read('db/seeds/articles.json'))
+json = ActiveSupport::JSON.decode(File.read('db/seeds/sparks.json'))
 json.each do |record|
-    Article.create!(record)
+    Spark.create!(record)
 end

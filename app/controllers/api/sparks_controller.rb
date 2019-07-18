@@ -1,37 +1,38 @@
-# Respond to JSON requests about articles
 class Api::SparksController < ApplicationController
-    respond_to :json
+  respond_to :json
 
-    def index
-        respond_with Article.order(title: :DESC)
-    end
+  def index
+    respond_with Spark.order(spark_date: :DESC)
+  end
 
-    def show
-        respond_with Article.find(params[:id])
-    end
+  def show
+    respond_with Spark.find(params[:id])
+  end
 
-    def create
-        respond_with :api, Article.create(article_params)
-    end
+  def create
+    respond_with :api, Spark.create(spark_params)
+  end
 
-    def destroy
-        respond_with Article.destroy(params[:id])
-    end
+  def destroy
+    respond_with Spark.destroy(params[:id])
+  end
 
-    def update
-        article = Article.find(params['id'])
-        article.update(article_params)
-        respond_with Article, json: article
-    end
+  def update
+    spark = Spark.find(params['id'])
+    spark.update(spark_params)
+    respond_with Spark, json: spark
+  end
 
-    private
+  private
 
-    def article_params
-        param.require(:article).permit(
-            :title,
-            :url
-        )
-    end
+  def spark_params
+    params.require(:spark).permit(
+      :id,
+      :spark_type,
+      :spark_date,
+      :title,
+      :url
+    )
+  end
 
 end
-    
